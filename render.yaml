@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: ai-command-center
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_MODEL
+        value: gpt-5.6-sol
+      - key: DATABASE_PATH
+        value: ./data/ai_dashboard.db
+      - key: FRONTEND_ORIGIN
+        value: '*'
